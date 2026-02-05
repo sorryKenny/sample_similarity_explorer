@@ -58,3 +58,7 @@ RNA-seq gene expression data from GEO are well-suited for this project because:
 - The data are widely used in bioinformatics research and education.
 - Processed expression matrices are readily available, reducing the need for extensive preprocessing.
 - The dataset structure matches the expected input format of the software tool.
+
+Current development dataset:
+The current development dataset is GEO DataSet GDS6063. The raw SOFT file is stored in data/GDS6063_full.soft.gz.
+A parsed expression matrix (CSV format) is provided in data/gds6063_expression.csv for development and testing.

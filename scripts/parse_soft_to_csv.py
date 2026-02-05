@@ -1,6 +1,6 @@
 import pandas as pd
 
-soft_path = "data/GDS6063.soft"      
+soft_path = "data/GDS6063_full.soft"      
 out_csv = "data/gds6063_expression.csv"
 
 data_lines = []

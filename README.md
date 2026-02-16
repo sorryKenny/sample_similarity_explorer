@@ -51,6 +51,14 @@ The project focuses on algorithmic clarity and flexibility, allowing different s
 5. Generate similarity matrices and ranked sample outputs.
 6. Export results in standard tabular formats for downstream analysis or visualization.
 
+### Potential Biological Applications
+
+Beyond identifying similar samples, the tool may also be used to:
+
+- Detect outliers or mislabeled samples
+- Assess batch effects in experimental design
+- Explore disease subtypes or hidden biological structure
+
 ## Scope and Limitations
 
 This project is intended as an exploratory analysis tool and does not attempt to perform statistical inference or predictive modeling. The focus is on transparent computation and interpretability of similarity measures rather than model optimization.

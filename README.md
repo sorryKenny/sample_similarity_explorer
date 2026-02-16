@@ -55,6 +55,17 @@ The project focuses on algorithmic clarity and flexibility, allowing different s
 
 This project is intended as an exploratory analysis tool and does not attempt to perform statistical inference or predictive modeling. The focus is on transparent computation and interpretability of similarity measures rather than model optimization.
 
+### Normalization Assumptions
+
+By default, the tool assumes that the input expression matrix has already been normalized.
+
+Optional preprocessing strategies may include:
+- Z-score standardization per feature
+- Log2 transformation
+- Missing value filtering
+
+These steps are not automatically applied but can be incorporated before similarity computation.
+
 ## Use of AI Tools (Honor Code Disclosure)
 
 Gen AI tools (e.g., ChatGPT) were used during the development of this project for:

@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+# remove rows with any NaN
+X = X[~np.isnan(X).any(axis=1)]
 
 def compute_sample_similarity(df: pd.DataFrame, metric: str = "pearson") -> pd.DataFrame:
     """

@@ -39,3 +39,9 @@ def test_edge_case_single_feature():
     })
     sim = compute_sample_similarity(df)
     assert sim.shape == (2, 2)
+
+
+def test_empty_dataframe():
+    df = pd.DataFrame()
+    with pytest.raises(ValueError):
+        compute_sample_similarity(df)

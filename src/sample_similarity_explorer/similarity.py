@@ -20,6 +20,17 @@ def compute_sample_similarity(df: pd.DataFrame, metric: str = "pearson") -> pd.D
     pd.DataFrame
         Sample-by-sample similarity matrix.
     """
+
+    if df.empty:
+        raise ValueError("Input dataframe is empty.")
+        
+    df = df.dropna(axis=0, how="any")
+
+    if metric not in {"pearson", "cosine"}:
+        raise ValueError(f"Unsupported metric: {metric}")
+
+    data = df.values.T  # samples x features
+    
     if metric not in {"pearson", "cosine"}:
         raise ValueError(f"Unsupported metric: {metric}")
 

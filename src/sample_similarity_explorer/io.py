@@ -60,6 +60,8 @@ def load_feature_matrix(path: str) -> pd.DataFrame:
     numeric_df = df.apply(pd.to_numeric, errors="coerce")
 
     original_missing = df.isna()
+
+    # Added: is NaN after conversion to numeric but not NaN before conversion
     invalid_values = numeric_df.isna() & ~original_missing
 
     if invalid_values.any().any():

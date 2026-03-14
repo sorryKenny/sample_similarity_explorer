@@ -77,3 +77,49 @@ def compute_sample_similarity(df: pd.DataFrame, metric: str = "pearson") -> pd.D
 
     return pd.DataFrame(sim, index=df.columns, columns=df.columns)
 
+
+
+def get_top_similar_samples(
+    similarity_df: pd.DataFrame,
+    reference_sample: str,
+    top_n: int = 5,
+    exclude_self: bool = True,
+) -> pd.DataFrame:
+    """
+    Return the top N most similar samples to a reference sample.
+    """
+
+    # Added: basic validation
+    if not isinstance(similarity_df, pd.DataFrame):
+        raise ValueError("similarity_df must be a pandas DataFrame.")
+
+    if similarity_df.empty:
+        raise ValueError("similarity_df is empty.")
+
+    if similarity_df.shape[0] != similarity_df.shape[1]:
+        raise ValueError("similarity_df must be a square matrix.")
+
+    if list(similarity_df.index) != list(similarity_df.columns):
+        raise ValueError(
+            "similarity_df must have matching row and column labels in the same order."
+        )
+
+    if reference_sample not in similarity_df.index:
+        raise ValueError(f"Reference sample not found: {reference_sample}")
+
+    if not isinstance(top_n, int) or top_n <= 0:
+        raise ValueError("top_n must be a positive integer.")
+
+    scores = similarity_df.loc[reference_sample].copy()
+
+    if exclude_self:
+        scores = scores.drop(labels=[reference_sample], errors="ignore")
+
+    scores = scores.sort_values(ascending=False).head(top_n)
+
+    return pd.DataFrame(
+        {
+            "sample": scores.index,
+            "similarity": scores.values,
+        }
+    ).reset_index(drop=True)

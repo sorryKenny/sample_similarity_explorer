@@ -47,7 +47,6 @@ def test_empty_dataframe():
         compute_sample_similarity(df)
 
 
-# Added tests
 
 # Added tests for new validation behavior
 

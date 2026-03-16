@@ -189,44 +189,59 @@ Users can understand what the similarity scores represent and how to interpret t
 
 ---
 
-Activity 5: Improvements Based on Peer Feedback
+## Activity 5: Improvements Based on Peer Feedback
 
-Task 1: Clarify Similarity Matrix Interpretation
-Description:
-Update documentation and output conventions so that similarity scores are clearly defined and consistently interpreted across metrics.
+### Goal
+Incorporate feedback received during Homework 2 to improve documentation clarity, data handling, and similarity metric support in the software.
 
-Deliverable:
-Updated README and SRS documentation.
+---
 
-Completion Criteria:
-Users can clearly understand whether values represent similarity or distance and how to interpret them.
+### Task 1: Clarify Similarity Matrix Interpretation
 
-Task 2: Handle Missing Data
-Description:
-Add functionality to detect and handle missing values in the feature matrix before similarity computation.
+**Description:**  
+Update the project documentation to clearly define whether the output represents similarity or distance values and how these values should be interpreted by users.
 
-Deliverable:
-Input validation and missing data handling logic.
+**Deliverable:**  
+Updated documentation in README.md and SRS.md explaining the interpretation of similarity scores.
 
-Completion Criteria:
-Datasets containing missing values can be processed safely.
+**Completion Criteria:**  
+The documentation clearly states that the output is a similarity matrix and explains the meaning and range of similarity values for each supported metric.
 
-Task 3: Add Spearman Rank Similarity
-Description:
-Implement an additional similarity metric based on Spearman rank correlation.
+---
 
-Deliverable:
-A new similarity option available to users.
+### Task 2: Handle Missing Data
 
-Completion Criteria:
-Users can compute similarity using Spearman correlation.
+**Description:**  
+Add functionality to detect and handle missing values in the input dataset before similarity computation to ensure reliable similarity calculations.
 
-Task 4: Create Tutorial and Demo
-Description:
-Develop a tutorial notebook demonstrating how to run the software on the example dataset.
+**Deliverable:**  
+A preprocessing function that identifies missing values and applies a defined strategy (e.g., removal of features with excessive missing values or simple imputation).
 
-Deliverable:
-A notebook stored in the tutorials folder.
+**Completion Criteria:**  
+Datasets containing missing values can be processed without errors, and similarity computations remain stable.
 
-Completion Criteria:
-Users can reproduce the full workflow from input dataset to similarity matrix output.
+---
+
+### Task 3: Add Spearman Rank Similarity Metric
+
+**Description:**  
+Implement an additional similarity metric based on Spearman rank correlation to support non-linear similarity relationships between samples.
+
+**Deliverable:**  
+An updated similarity computation module supporting Spearman correlation as an additional metric option.
+
+**Completion Criteria:**  
+Users can select Spearman correlation as a metric, and the software successfully computes the corresponding similarity matrix.
+
+---
+
+### Task 4: Create Tutorial and Demonstration Notebook
+
+**Description:**  
+Develop a tutorial notebook that demonstrates how to use the software on the example dataset, including loading the dataset, computing similarity, and exporting results.
+
+**Deliverable:**  
+A Jupyter notebook stored in the tutorials folder demonstrating the full workflow of the tool.
+
+**Completion Criteria:**  
+Users can follow the notebook to reproduce the similarity computation process and obtain the expected output using the example dataset.

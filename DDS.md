@@ -91,3 +91,8 @@ Support multiple similarity metrics and basic preprocessing options.
 
 **Milestone 3:**  
 Add simple visualization or reporting of most similar samples for a selected reference sample.
+
+Future improvements suggested during peer review include:
+
+- Adding non-linear similarity metrics such as Spearman rank correlation
+- Improving handling of missing values before similarity computation

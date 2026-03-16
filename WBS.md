@@ -186,3 +186,47 @@ Short documentation in README or docs folder.
 
 **Completion Criteria:**  
 Users can understand what the similarity scores represent and how to interpret them.
+
+---
+
+Activity 5: Improvements Based on Peer Feedback
+
+Task 1: Clarify Similarity Matrix Interpretation
+Description:
+Update documentation and output conventions so that similarity scores are clearly defined and consistently interpreted across metrics.
+
+Deliverable:
+Updated README and SRS documentation.
+
+Completion Criteria:
+Users can clearly understand whether values represent similarity or distance and how to interpret them.
+
+Task 2: Handle Missing Data
+Description:
+Add functionality to detect and handle missing values in the feature matrix before similarity computation.
+
+Deliverable:
+Input validation and missing data handling logic.
+
+Completion Criteria:
+Datasets containing missing values can be processed safely.
+
+Task 3: Add Spearman Rank Similarity
+Description:
+Implement an additional similarity metric based on Spearman rank correlation.
+
+Deliverable:
+A new similarity option available to users.
+
+Completion Criteria:
+Users can compute similarity using Spearman correlation.
+
+Task 4: Create Tutorial and Demo
+Description:
+Develop a tutorial notebook demonstrating how to run the software on the example dataset.
+
+Deliverable:
+A notebook stored in the tutorials folder.
+
+Completion Criteria:
+Users can reproduce the full workflow from input dataset to similarity matrix output.

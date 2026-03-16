@@ -44,6 +44,29 @@ The software should support the following core functionalities:
 - The implementation should prioritize clarity and readability over performance optimization.
 - The software should be able to run on a standard personal computer using small to medium-sized datasets.
 
+## Clarification of Similarity Output (Update from Peer Feedback)
+
+Based on feedback received during Homework 2, the interpretation of similarity values has been clarified.
+
+The software outputs a **similarity matrix**, not a distance matrix.
+
+Interpretation rules:
+
+- Larger values indicate **greater similarity** between samples.
+- The diagonal of the matrix represents self-similarity and should be close to 1 for correlation-based metrics.
+
+Supported similarity metrics include:
+
+Pearson correlation  
+Range: [-1, 1]
+
+Cosine similarity  
+Range: [-1, 1] after centering
+
+Future versions may include additional metrics such as Spearman rank correlation.
+
+For consistency across metrics, the software will standardize outputs so that higher values always represent stronger similarity.
+
 ## Scope and Limitations
 
 This tool is intended for exploratory analysis and does not perform statistical inference, hypothesis testing, or predictive modeling. The initial implementation will focus on supporting a small set of standard similarity metrics and simple input formats.

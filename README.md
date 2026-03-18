@@ -74,6 +74,14 @@ Optional preprocessing strategies may include:
 
 These steps are not automatically applied but can be incorporated before similarity computation.
 
+## Example Data
+
+The dataset is located in `data/gds6063_expression.csv`.
+
+## Tutorial
+
+See `tutorials/tutorial.ipynb` for a full workflow demonstration.
+
 ## Use of AI Tools (Honor Code Disclosure)
 
 Gen AI tools (e.g., ChatGPT) were used during the development of this project for:

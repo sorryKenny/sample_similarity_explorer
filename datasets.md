@@ -62,29 +62,19 @@ RNA-seq gene expression data from GEO are well-suited for this project because:
 - Processed expression matrices are readily available.
 - The dataset structure matches the expected input format of the software tool.
 
-## Example dataset for using the tool
+### Real dataset for answering a biological question using the tool.
 
-The example dataset used in the tutorial and development of this project is the GEO DataSet **GDS6063**.
+**1. Example dataset for using the tool:**
+The example dataset used in the tutorial and development of this project is the GEO DataSet GDS6063.
+* The raw dataset is stored in the repository as: `data/GDS6063_full.soft.gz`
+* A parsed expression matrix generated from the SOFT file is provided as: `data/gds6063_expression.csv`
+* **URL:** https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS6063
 
-The raw dataset is stored in the repository as:
+**2. Biological Question:**
+Can we distinguish different biological samples based on their gene expression similarity? Specifically, do samples from the same biological condition cluster together with high similarity scores?
 
-data/GDS6063_full.soft.gz
-
-A parsed expression matrix generated from the SOFT file is provided as:
-
-data/gds6063_expression.csv
-
-Structure of the example dataset:
-
-Rows: genes  
-Columns: biological samples  
-Values: normalized gene expression values
-
-Basic statistics of the example dataset:
-
-- Number of genes: ~12,000  
-- Number of samples: 10  
-- Data type: continuous gene expression values  
+**3. Expected Results and Answer:**
+The expected result is a computed similarity matrix (e.g., using Pearson or Spearman correlation). The expected answer is that samples belonging to similar phenotypes or conditions will show highly positive correlation coefficients (e.g., > 0.90), demonstrating that the tool successfully captures biological sample relationships.
 
 This dataset is suitable as an example because:
 

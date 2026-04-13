@@ -7,5 +7,5 @@ name = "sample-similarity-explorer"
 version = "0.1.0"
 description = "Sample-level similarity analysis for high-dimensional biological data"
 authors = [{ name = "Your Name" }]
-dependencies = ["numpy", "pandas", "seaborn", "matplotlib"]
+dependencies = ["numpy", "pandas", "seaborn", "matplotlib", "scipy"]
 

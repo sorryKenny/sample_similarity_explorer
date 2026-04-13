@@ -13,7 +13,8 @@ The primary goal of the project is to support exploratory data analysis tasks su
 
 The project focuses on algorithmic clarity and flexibility, allowing different similarity metrics to be applied to the same dataset.
 
-<img width="692" height="1888" alt="mermaid-diagram-2026-04-12-192511" src="https://github.com/user-attachments/assets/3094df55-2f5a-4c85-84c6-1803bf8539d8" />
+<img width="4000" height="2000" alt="mermaid-diagram-2026-04-13-011429" src="https://github.com/user-attachments/assets/4de044b2-0186-4562-9619-f4e3f2074b8c" />
+
 
 ## Input Data
 

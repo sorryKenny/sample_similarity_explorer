@@ -1,7 +1,8 @@
 import pandas as pd
 import pytest
 from sample_similarity_explorer.similarity import compute_sample_similarity
-
+import numpy as np
+from src.sample_similarity_explorer.dim_reduction import compute_and_plot_pca
 
 def test_pearson_similarity():
     df = pd.DataFrame({
@@ -184,3 +185,15 @@ def test_get_top_similar_samples_mismatched_labels():
 
     with pytest.raises(ValueError, match="matching row and column labels"):
         get_top_similar_samples(similarity_df, reference_sample="S1")
+
+
+def test_pca_output_shape():
+    np.random.seed(42)
+    dummy_data = np.random.rand(100, 5)
+    df = pd.DataFrame(dummy_data, columns=[f"Sample_{i}" for i in range(5)])
+    
+    pca_df = compute_and_plot_pca(df)
+    
+    assert pca_df.shape == (5, 3) 
+    assert 'PC1' in pca_df.columns
+    assert 'PC2' in pca_df.columns

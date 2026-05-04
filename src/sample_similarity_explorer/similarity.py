@@ -1,24 +1,11 @@
 import numpy as np
 import pandas as pd
 
-if df.shape[1] < 2:
-        raise ValueError("At least two samples are required.")
-        
-    for col in df.columns:
-        if not pd.api.types.is_numeric_dtype(df[col]):
-            raise ValueError("Non-numeric value found.")
-            
-    if df.isna().all().any():
-        raise ValueError("Dataframe contains columns with all missing values.")
-        
-    if metric == "pearson" and (df.std(axis=0) == 0).any():
-        raise ValueError("Dataframe contains constant-valued samples.")
-
 
 def compute_sample_similarity(
     df: pd.DataFrame,
     metric: str = "pearson",
-    missing: str = "drop"  # NEW
+    missing: str = "drop"
 ) -> pd.DataFrame:
     """
     Compute pairwise sample-to-sample similarity.
@@ -39,11 +26,23 @@ def compute_sample_similarity(
     pd.DataFrame
         Sample-by-sample similarity matrix
     """
+    if df.shape[1] < 2:
+        raise ValueError("At least two samples are required.")
+        
+    for col in df.columns:
+        if not pd.api.types.is_numeric_dtype(df[col]):
+            raise ValueError("Non-numeric value found.")
+            
+    if df.isna().all().any():
+        raise ValueError("Dataframe contains columns with all missing values.")
+        
+    if metric == "pearson" and (df.std(axis=0) == 0).any():
+        raise ValueError("Dataframe contains constant-valued samples.")
 
     if df.empty:
         raise ValueError("Input dataframe is empty.")
 
-    # ===== NEW: Missing data handling =====
+    # Handle missing data
     if df.isna().any().any():
         if missing == "drop":
             df = df.dropna(axis=0, how="any")
@@ -52,7 +51,7 @@ def compute_sample_similarity(
         else:
             raise ValueError(f"Unknown missing strategy: {missing}")
 
-    # ===== NEW: support spearman =====
+    # Validate metric selection
     if metric not in {"pearson", "cosine", "spearman"}:
         raise ValueError(f"Unsupported metric: {metric}")
 
@@ -67,7 +66,7 @@ def compute_sample_similarity(
         sim = normalized @ normalized.T
 
     elif metric == "spearman":
-        # rank transform first, then Pearson
+        # Rank transform first, then Pearson
         ranked = pd.DataFrame(data).rank(axis=1).values
         sim = np.corrcoef(ranked)
 

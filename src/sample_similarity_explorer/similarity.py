@@ -29,13 +29,14 @@ def compute_sample_similarity(
     if df.shape[1] < 2:
         raise ValueError("At least two samples are required.")
         
+    # FIX 1: Move the "all missing" check ABOVE the "numeric" check
+    if df.isna().all().any():
+        raise ValueError("Dataframe contains columns with all missing values.")
+        
     for col in df.columns:
         if not pd.api.types.is_numeric_dtype(df[col]):
             raise ValueError("Non-numeric value found.")
             
-    if df.isna().all().any():
-        raise ValueError("Dataframe contains columns with all missing values.")
-        
     if metric == "pearson" and (df.std(axis=0) == 0).any():
         raise ValueError("Dataframe contains constant-valued samples.")
 
@@ -92,4 +93,9 @@ def get_top_similar_samples(similarity_df, reference_sample, top_n=5, exclude_se
         sim_scores = sim_scores.drop(reference_sample)
 
     top_samples = sim_scores.sort_values(ascending=False).head(top_n)
-    return top_samples
+    
+    # FIX 2: Convert the 1D Series into a 2D DataFrame with specific column names expected by tests
+    result_df = top_samples.reset_index()
+    result_df.columns = ["sample", "similarity"]
+    
+    return result_df

@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 from sample_similarity_explorer.similarity import compute_sample_similarity
 import numpy as np
-from src.sample_similarity_explorer.dim_reduction import compute_and_plot_pca
+from sample_similarity_explorer.dim_reduction import compute_and_plot_pca
 
 def test_pearson_similarity():
     df = pd.DataFrame({

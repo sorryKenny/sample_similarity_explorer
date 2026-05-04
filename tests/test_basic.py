@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from sample_similarity_explorer.similarity import compute_sample_similarity
+from sample_similarity_explorer.similarity import compute_sample_similarity, get_top_similar_samples
 import numpy as np
 from sample_similarity_explorer.dim_reduction import compute_and_plot_pca
 
